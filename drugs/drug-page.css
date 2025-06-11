@@ -708,6 +708,17 @@
   transform: translateY(-2px);
 }
 
+/* Enhanced Responsive Design for Drug Pages */
+@media (max-width: 1200px) {
+  .drug-main-content {
+    gap: 40px;
+  }
+
+  .drug-hero h1 {
+    font-size: 3rem;
+  }
+}
+
 /* Responsive Design for Drug Pages */
 @media (max-width: 992px) {
   .drug-main-content {
@@ -716,11 +727,13 @@
 
   .drug-sidebar {
     position: static;
+    margin-top: 40px;
   }
 
   .drug-hero-content {
     flex-direction: column;
     text-align: center;
+    gap: 30px;
   }
 
   .drug-hero h1 {
@@ -730,57 +743,465 @@
   .uses-grid,
   .side-effects-container,
   .precautions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .drug-info-grid {
     grid-template-columns: 1fr;
+  }
+
+  .search-results-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .drug-nav ul {
-    justify-content: flex-start;
-    padding: 15px 0;
-  }
-
-  .drug-hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .drug-actions {
-    justify-content: center;
-  }
-
-  .action-btn {
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
-
-  .interactions-table-container {
-    font-size: 0.9rem;
-  }
-
-  .expert-info {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width: 576px) {
+  /* Drug Hero Section */
   .drug-hero {
     padding: 100px 0 40px;
   }
 
   .drug-hero h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+
+  .drug-hero-text {
+    padding: 0 10px;
+  }
+
+  .drug-category {
+    font-size: 0.8rem;
+    padding: 5px 12px;
+  }
+
+  .drug-alt-names {
+    font-size: 0.9rem;
+  }
+
+  .drug-summary {
+    font-size: 1rem;
+  }
+
+  /* Drug Navigation */
+  .drug-nav ul {
+    justify-content: flex-start;
+    padding: 15px 0;
+    gap: 15px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .drug-nav ul::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .drug-nav ul::-webkit-scrollbar-track {
+    background: var(--light-color);
+  }
+
+  .drug-nav ul::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 2px;
+  }
+
+  .drug-nav a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+
+  /* Drug Actions */
+  .drug-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .action-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  /* Drug Content */
+  .drug-content {
+    padding: 40px 0;
+  }
+
+  .drug-section {
+    margin-bottom: 40px;
   }
 
   .drug-section h2 {
     font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .drug-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .drug-section h4 {
+    font-size: 1.1rem;
+  }
+
+  /* Info Cards */
+  .drug-info-card {
+    padding: 20px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+
+  .info-label {
+    min-width: auto;
+    margin-right: 0;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  /* Uses Grid */
+  .uses-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .use-card {
+    padding: 20px;
+  }
+
+  .use-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  /* Dosage Table */
+  .dosage-table-container,
+  .interactions-table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+
+  .dosage-table,
+  .interactions-table {
+    min-width: 600px;
+    font-size: 0.9rem;
+  }
+
+  .dosage-table th,
+  .dosage-table td,
+  .interactions-table th,
+  .interactions-table td {
+    padding: 10px 8px;
+  }
+
+  /* Side Effects */
+  .side-effects-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .side-effect-category {
+    padding: 20px;
+  }
+
+  /* Precautions */
+  .precautions-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .precaution-card {
+    padding: 20px;
+  }
+
+  .precaution-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  /* FAQ */
+  .faq-question {
+    padding: 15px 20px;
+  }
+
+  .faq-question h4 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .faq-answer {
+    padding: 0 20px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 20px 15px;
+  }
+
+  /* Sidebar */
+  .sidebar-widget {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-widget h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .expert-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .expert-info img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Similar Medications */
+  .similar-meds-slider {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .similar-med-card {
+    padding: 20px;
+  }
+
+  .med-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Drug Hero */
+  .drug-hero {
+    padding: 90px 0 30px;
+  }
+
+  .drug-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
   }
 
   .drug-tags {
     justify-content: center;
+    gap: 6px;
   }
 
-  .similar-meds-slider {
-    grid-template-columns: 1fr;
+  .drug-tags span {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+
+  /* Drug Navigation */
+  .drug-navigation {
+    top: 70px;
+  }
+
+  .drug-nav ul {
+    padding: 12px 0;
+    gap: 10px;
+  }
+
+  .drug-nav a {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  /* Drug Actions */
+  .drug-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .action-btn {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  /* Drug Content */
+  .drug-content {
+    padding: 30px 0;
+  }
+
+  .drug-section h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Info Cards */
+  .drug-info-card {
+    padding: 15px;
+  }
+
+  /* Uses Grid */
+  .use-card {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .use-icon {
+    font-size: 1.8rem;
+  }
+
+  /* Tables */
+  .dosage-table,
+  .interactions-table {
+    font-size: 0.8rem;
+    min-width: 500px;
+  }
+
+  .dosage-table th,
+  .dosage-table td,
+  .interactions-table th,
+  .interactions-table td {
+    padding: 8px 6px;
+  }
+
+  /* Side Effects */
+  .side-effect-category {
+    padding: 15px;
+  }
+
+  /* Precautions */
+  .precaution-card {
+    padding: 15px;
+  }
+
+  .precaution-icon {
+    font-size: 1.8rem;
+  }
+
+  /* FAQ */
+  .faq-question {
+    padding: 12px 15px;
+  }
+
+  .faq-question h4 {
+    font-size: 0.95rem;
+  }
+
+  .faq-answer {
+    padding: 0 15px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 15px 12px;
+  }
+
+  /* Sidebar */
+  .sidebar-widget {
+    padding: 15px;
+  }
+
+  .emergency-contacts div {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  /* Similar Medications */
+  .similar-med-card {
+    padding: 15px;
+  }
+
+  .med-icon {
+    font-size: 1.8rem;
+  }
+
+  .similar-med-card h4 {
+    font-size: 1.1rem;
+  }
+
+  .similar-med-card p {
+    font-size: 0.9rem;
+  }
+
+  .view-med-btn {
+    padding: 6px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .drug-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .drug-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .dosage-table,
+  .interactions-table {
+    font-size: 0.75rem;
+    min-width: 450px;
+  }
+
+  .use-card,
+  .precaution-card,
+  .side-effect-category {
+    padding: 12px;
+  }
+
+  .sidebar-widget {
+    padding: 12px;
+  }
+}
+
+/* Touch device optimizations for drug pages */
+@media (hover: none) and (pointer: coarse) {
+  .drug-card:hover,
+  .use-card:hover,
+  .precaution-card:hover,
+  .similar-med-card:hover {
+    transform: none;
+  }
+
+  .action-btn:hover,
+  .view-med-btn:hover {
+    transform: none;
+  }
+
+  /* Increase touch targets */
+  .drug-nav a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .faq-question {
+    min-height: 48px;
+  }
+
+  .action-btn {
+    min-height: 44px;
+  }
+}
+
+/* Landscape orientation for drug pages */
+@media (max-width: 768px) and (orientation: landscape) {
+  .drug-hero {
+    padding: 80px 0 30px;
+  }
+
+  .drug-hero h1 {
+    font-size: 2rem;
+  }
+
+  .uses-grid,
+  .precautions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
