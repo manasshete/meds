@@ -592,7 +592,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Otherwise show search results
           const results = findDrugs(searchTerm)
-          showSearchResults
+          showSearchResults(results)
         }, 500) // Simulate loading time
       } else {
         alert("Please enter a search term.")
@@ -645,5 +645,385 @@ document.addEventListener("DOMContentLoaded", () => {
     function hideLoading() {
       searchContainer.textContent = "" // Clear loading message
     }
+  }
+
+  // Add mobile-specific functionality at the end of the DOMContentLoaded event listener
+
+  // Enhanced mobile navigation
+  function setupMobileNavigation() {
+    const hamburger = document.querySelector(".hamburger")
+    const navLinks = document.querySelector(".nav-links")
+    const navItems = document.querySelectorAll(".nav-links a")
+
+    if (hamburger && navLinks) {
+      // Close menu when clicking on nav items
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          if (navLinks.classList.contains("active")) {
+            navLinks.classList.remove("active")
+            hamburger.classList.remove("active")
+          }
+        })
+      })
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("active")
+          hamburger.classList.remove("active")
+        }
+      })
+
+      // Handle escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active")
+          hamburger.classList.remove("active")
+        }
+      })
+    }
+  }
+
+  // Touch-friendly search suggestions
+  function setupTouchFriendlySearch() {
+    const searchSuggestions = document.querySelector(".search-suggestions")
+    const searchBar = document.querySelector(".search-bar input") // Access searchBar here
+    const hideSuggestions = () => {
+      // Define hideSuggestions here
+      suggestionsDiv.style.display = "none"
+    }
+    const handleSearch = () => {
+      // Define handleSearch here
+      const searchTerm = searchBar.value.trim().toLowerCase()
+      if (searchTerm) {
+        showLoading()
+
+        setTimeout(() => {
+          hideLoading()
+
+          // Check if we have a direct match and redirect to drug page
+          const directMatch = Object.keys(drugDatabase).find(
+            (key) => key === searchTerm || drugDatabase[key].name.toLowerCase() === searchTerm,
+          )
+
+          if (directMatch && drugDatabase[directMatch].url) {
+            window.location.href = drugDatabase[directMatch].url
+            return
+          }
+
+          // Otherwise show search results
+          const results = findDrugs(searchTerm)
+          showSearchResults(results)
+        }, 500) // Simulate loading time
+      } else {
+        alert("Please enter a search term.")
+      }
+    }
+    const showLoading = () => {
+      searchContainer.textContent = "Loading..."
+    }
+
+    const hideLoading = () => {
+      searchContainer.textContent = "" // Clear loading message
+    }
+    const findDrugs = (searchTerm) => {
+      const results = []
+      for (const key in drugDatabase) {
+        if (
+          drugDatabase[key].name.toLowerCase().includes(searchTerm) ||
+          drugDatabase[key].type.toLowerCase().includes(searchTerm) ||
+          drugDatabase[key].uses.some((use) => use.toLowerCase().includes(searchTerm))
+        ) {
+          results.push(drugDatabase[key])
+        }
+      }
+      return results
+    }
+    const showSearchResults = (results) => {
+      searchContainer.innerHTML = "" // Clear previous content
+
+      if (results.length > 0) {
+        const resultsList = document.createElement("ul")
+        resultsList.className = "search-results-list"
+
+        results.forEach((drug) => {
+          const listItem = document.createElement("li")
+          listItem.className = "search-result-item"
+
+          const link = document.createElement("a")
+          link.href = drug.url
+          link.textContent = drug.name
+          listItem.appendChild(link)
+
+          resultsList.appendChild(listItem)
+        })
+
+        searchContainer.appendChild(resultsList)
+      } else {
+        searchContainer.textContent = "No results found."
+      }
+    }
+    const suggestionsDiv = document.querySelector(".search-suggestions")
+    if (searchSuggestions) {
+      // Add touch event listeners for better mobile interaction
+      searchSuggestions.addEventListener("touchstart", (e) => {
+        e.preventDefault()
+        if (e.target.classList.contains("search-suggestion")) {
+          e.target.style.backgroundColor = "var(--primary-light)"
+        }
+      })
+
+      searchSuggestions.addEventListener("touchend", (e) => {
+        e.preventDefault()
+        if (e.target.classList.contains("search-suggestion")) {
+          e.target.style.backgroundColor = ""
+          searchBar.value = e.target.textContent
+          hideSuggestions()
+          handleSearch()
+        }
+      })
+    }
+  }
+
+  // Responsive testimonial slider
+  function setupResponsiveTestimonials() {
+    const testimonialSlides = document.querySelectorAll(".testimonial-slide")
+    const dots = document.querySelectorAll(".dot")
+    const prevBtn = document.querySelector(".prev-btn")
+    const nextBtn = document.querySelector(".next-btn")
+    let currentSlide = 0
+
+    if (testimonialSlides.length > 0) {
+      function showSlide(index) {
+        testimonialSlides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === index)
+        })
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index)
+        })
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % testimonialSlides.length
+        showSlide(currentSlide)
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + testimonialSlides.length) % testimonialSlides.length
+        showSlide(currentSlide)
+      }
+
+      // Auto-advance slides on mobile
+      let autoSlideInterval
+      function startAutoSlide() {
+        if (window.innerWidth <= 768) {
+          autoSlideInterval = setInterval(nextSlide, 5000)
+        }
+      }
+
+      function stopAutoSlide() {
+        clearInterval(autoSlideInterval)
+      }
+
+      // Touch/swipe support for testimonials
+      let touchStartX = 0
+      let touchEndX = 0
+
+      const testimonialSlider = document.querySelector(".testimonial-slider")
+      if (testimonialSlider) {
+        testimonialSlider.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].screenX
+          stopAutoSlide()
+        })
+
+        testimonialSlider.addEventListener("touchend", (e) => {
+          touchEndX = e.changedTouches[0].screenX
+          handleSwipe()
+          startAutoSlide()
+        })
+
+        function handleSwipe() {
+          const swipeThreshold = 50
+          const diff = touchStartX - touchEndX
+
+          if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+              nextSlide()
+            } else {
+              prevSlide()
+            }
+          }
+        }
+      }
+
+      // Button event listeners
+      if (nextBtn)
+        nextBtn.addEventListener("click", () => {
+          nextSlide()
+          stopAutoSlide()
+          startAutoSlide()
+        })
+
+      if (prevBtn)
+        prevBtn.addEventListener("click", () => {
+          prevSlide()
+          stopAutoSlide()
+          startAutoSlide()
+        })
+
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentSlide = index
+          showSlide(currentSlide)
+          stopAutoSlide()
+          startAutoSlide()
+        })
+      })
+
+      // Start auto-slide on load
+      startAutoSlide()
+
+      // Handle window resize
+      window.addEventListener("resize", () => {
+        stopAutoSlide()
+        startAutoSlide()
+      })
+    }
+  }
+
+  // Smooth scroll with offset for mobile
+  function setupSmoothScrollWithOffset() {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault()
+
+        const targetId = this.getAttribute("href")
+        const targetElement = document.querySelector(targetId)
+
+        if (targetElement) {
+          const headerHeight = document.querySelector("header").offsetHeight
+          const extraOffset = window.innerWidth <= 768 ? 20 : 0
+          const targetPosition =
+            targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraOffset
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          })
+        }
+      })
+    })
+  }
+
+  // Optimize form interactions for mobile
+  function setupMobileFormOptimizations() {
+    const formInputs = document.querySelectorAll("input, textarea")
+
+    formInputs.forEach((input) => {
+      // Prevent zoom on focus for iOS
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        input.addEventListener("focus", () => {
+          input.style.fontSize = "16px"
+        })
+
+        input.addEventListener("blur", () => {
+          input.style.fontSize = ""
+        })
+      }
+
+      // Add visual feedback for touch
+      input.addEventListener("touchstart", () => {
+        input.style.transform = "scale(1.02)"
+      })
+
+      input.addEventListener("touchend", () => {
+        input.style.transform = ""
+      })
+    })
+  }
+
+  // Lazy loading for images on mobile
+  function setupLazyLoading() {
+    if ("IntersectionObserver" in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target
+            if (img.dataset.src) {
+              img.src = img.dataset.src
+              img.classList.remove("lazy")
+              observer.unobserve(img)
+            }
+          }
+        })
+      })
+
+      document.querySelectorAll("img[data-src]").forEach((img) => {
+        imageObserver.observe(img)
+      })
+    }
+  }
+
+  // Performance optimization for mobile
+  function setupPerformanceOptimizations() {
+    // Debounce scroll events
+    let scrollTimeout
+    const animateOnScroll = () => {
+      // Your scroll-dependent animation logic here
+      // For example:
+      // document.querySelectorAll('.fade-in').forEach(element => {
+      //   if (elementIsVisible(element)) {
+      //     element.classList.add('active');
+      //   }
+      // });
+    }
+    window.addEventListener("scroll", () => {
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout)
+      }
+      scrollTimeout = setTimeout(() => {
+        // Scroll-dependent functions here
+        animateOnScroll()
+      }, 16) // ~60fps
+    })
+
+    // Optimize animations for mobile
+    if (window.innerWidth <= 768) {
+      // Reduce animation complexity on mobile
+      const style = document.createElement("style")
+      style.textContent = `
+        * {
+          animation-duration: 0.2s !important;
+          transition-duration: 0.2s !important;
+        }
+      `
+      document.head.appendChild(style)
+    }
+  }
+
+  // Initialize all mobile enhancements
+  setupMobileNavigation()
+  setupTouchFriendlySearch()
+  setupResponsiveTestimonials()
+  setupSmoothScrollWithOffset()
+  setupMobileFormOptimizations()
+  setupLazyLoading()
+  setupPerformanceOptimizations()
+
+  // Handle orientation change
+  window.addEventListener("orientationchange", () => {
+    setTimeout(() => {
+      // Recalculate layouts after orientation change
+      window.scrollTo(0, window.scrollY)
+    }, 100)
+  })
+
+  // Add viewport meta tag if missing (for proper mobile rendering)
+  if (!document.querySelector('meta[name="viewport"]')) {
+    const viewport = document.createElement("meta")
+    viewport.name = "viewport"
+    viewport.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    document.head.appendChild(viewport)
   }
 })
