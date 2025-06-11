@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenuineMeds.in - Trusted Medical Information</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Genuine<span>Meds</span>.in</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li class="dropdown">
+                        <a href="#drugs">Medications <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="drugs/paracetamol.html">Paracetamol</a>
+                            <a href="drugs/ibuprofen.html">Ibuprofen</a>
+                            <a href="drugs/amoxicillin.html">Amoxicillin</a>
+                            <a href="drugs/omeprazole.html">Omeprazole</a>
+                            <a href="drugs/aspirin.html">Aspirin</a>
+                            <a href="drugs/metformin.html">Metformin</a>
+                            <a href="drugs/atorvastatin.html">Atorvastatin</a>
+                            <a href="drugs/amlodipine.html">Amlodipine</a>
+                            <a href="#all-drugs">View All</a>
+                        </div>
+                    </li>
+                    <li><a href="#why-us">Why Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Trusted Source for Medication Information</h1>
+                <p>Access verified, easy-to-understand information about medicinal drugs, their usage, side effects, dosage, and precautions.</p>
+                <div class="hero-buttons">
+                    <button class="cta-button primary-btn">Search Medications</button>
+                    <button class="cta-button secondary-btn">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/600x400" alt="Medical professionals">
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search" class="search">
+        <div class="container">
+            <div class="search-container">
+                <h2>Find Information About Any Medication</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Enter medication name...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <p class="search-examples">Popular searches: <span>Paracetamol</span>, <span>Ibuprofen</span>, <span>Amoxicillin</span>, <span>Aspirin</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Medications -->
+    <section id="featured" class="featured">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Featured Medications</span>
+                <h2>Commonly Searched Medications</h2>
+                <p>Detailed information about frequently used medications, reviewed by healthcare professionals</p>
+                <div class="underline"></div>
+            </div>
+            <div class="drug-cards">
+                <div class="drug-card">
+                    <div class="drug-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>Paracetamol</h3>
+                    <p>Used for pain relief and reducing high temperature. Common for headaches, toothaches, and cold symptoms.</p>
+                    <div class="drug-tags">
+                        <span>Pain Relief</span>
+                        <span>Fever</span>
+                    </div>
+                    <a href="drugs/paracetamol.html" class="learn-more">View Details</a>
+                </div>
+                <div class="drug-card">
+                    <div class="drug-icon">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <h3>Amoxicillin</h3>
+                    <p>An antibiotic used to treat a number of bacterial infections including ear infections and pneumonia.</p>
+                    <div class="drug-tags">
+                        <span>Antibiotic</span>
+                        <span>Infection</span>
+                    </div>
+                    <a href="drugs/amoxicillin.html" class="learn-more">View Details</a>
+                </div>
+                <div class="drug-card">
+                    <div class="drug-icon">
+                        <i class="fas fa-tablets"></i>
+                    </div>
+                    <h3>Ibuprofen</h3>
+                    <p>A nonsteroidal anti-inflammatory drug used for treating pain, fever, and inflammation.</p>
+                    <div class="drug-tags">
+                        <span>NSAID</span>
+                        <span>Pain Relief</span>
+                    </div>
+                    <a href="drugs/ibuprofen.html" class="learn-more">View Details</a>
+                </div>
+                <div class="drug-card">
+                    <div class="drug-icon">
+                        <i class="fas fa-prescription-bottle"></i>
+                    </div>
+                    <h3>Omeprazole</h3>
+                    <p>Used to treat certain stomach and esophagus problems such as acid reflux and ulcers.</p>
+                    <div class="drug-tags">
+                        <span>Acid Reflux</span>
+                        <span>Ulcers</span>
+                    </div>
+                    <a href="drugs/omeprazole.html" class="learn-more">View Details</a>
+                </div>
+                <div class="drug-card">
+                    <div class="drug-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Aspirin</h3>
+                    <p>Used for pain relief, fever reduction, and prevention of heart attacks and strokes.</p>
+                    <div class="drug-tags">
+                        <span>Heart Protection</span>
+                        <span>Pain Relief</span>
+                    </div>
+                    <a href="drugs/aspirin.html" class="learn-more">View Details</a>
+                </div>
+                <div class="drug-card">
+                    <div class="drug-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Metformin</h3>
+                    <p>First-line medication for type 2 diabetes, helps control blood sugar levels effectively.</p>
+                    <div class="drug-tags">
+                        <span>Diabetes</span>
+                        <span>Blood Sugar</span>
+                    </div>
+                    <a href="drugs/metformin.html" class="learn-more">View Details</a>
+                </div>
+                <div class="drug-card">
+                    <div class="drug-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Atorvastatin</h3>
+                    <p>Statin medication used to lower cholesterol and reduce risk of cardiovascular disease.</p>
+                    <div class="drug-tags">
+                        <span>Cholesterol</span>
+                        <span>Heart Health</span>
+                    </div>
+                    <a href="drugs/atorvastatin.html" class="learn-more">View Details</a>
+                </div>
+                <div class="drug-card">
+                    <div class="drug-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Amlodipine</h3>
+                    <p>Calcium channel blocker used to treat high blood pressure and chest pain (angina).</p>
+                    <div class="drug-tags">
+                        <span>Blood Pressure</span>
+                        <span>Angina</span>
+                    </div>
+                    <a href="drugs/amlodipine.html" class="learn-more">View Details</a>
+                </div>
+            </div>
+            <div class="view-all-container">
+                <a href="#all-drugs" class="view-all-btn">View All Medications <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h2>Our Mission & Vision</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x400" alt="GenuineMeds team">
+                    <div class="about-image-overlay">
+                        <span>Trusted by healthcare professionals</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Empowering Through Knowledge</h3>
+                    <p>At GenuineMeds.in, we believe that everyone deserves access to clear, accurate, and reliable information about the medications they take. Our mission is to bridge the gap between complex medical terminology and everyday understanding.</p>
+                    <p>Founded by a team of healthcare professionals and educators, GenuineMeds.in provides verified medical information in simple language that students, patients, and the general public can easily comprehend.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-text">Medications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-text">Medical Experts</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10k+</span>
+                            <span class="stat-text">Daily Users</span>
+                        </div>
+                    </div>
+                    <a href="#" class="about-btn">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2>The GenuineMeds.in Difference</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Verified Information</h3>
+                    <p>All content is reviewed and verified by qualified healthcare professionals to ensure accuracy.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Simple Language</h3>
+                    <p>Complex medical terms explained in easy-to-understand language for better comprehension.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Doctor Reviewed</h3>
+                    <p>Our content is reviewed by practicing physicians for accuracy and clinical relevance.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Regularly Updated</h3>
+                    <p>Information is constantly updated to reflect the latest medical research and guidelines.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Indian Context</h3>
+                    <p>Information tailored to medications available and commonly prescribed in India.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access reliable medication information on any device, anytime, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2>What Our Users Say</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"GenuineMeds.in has been an invaluable resource for me as a medical student. The information is clear, concise, and scientifically accurate."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Testimonial author">
+                            <div class="author-info">
+                                <h4>Dr. Priya Sharma</h4>
+                                <span>Medical Resident, AIIMS Delhi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"As a pharmacist, I often recommend GenuineMeds.in to my patients. The information is presented in a way that's easy for anyone to understand."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Testimonial author">
+                            <div class="author-info">
+                                <h4>Rajesh Patel</h4>
+                                <span>Senior Pharmacist, Mumbai</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"I always check GenuineMeds.in before taking any new medication. The detailed information about side effects has helped me make informed decisions."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Testimonial author">
+                            <div class="author-info">
+                                <h4>Anita Desai</h4>
+                                <span>Patient, Bangalore</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Contact Us</span>
+                <h2>Get In Touch</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Send us a message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Get in touch</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Health Avenue, Medical District, New Delhi, 110001</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@genuinemeds.in</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 98765 43210</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h2>Genuine<span>Meds</span>.in</h2>
+                        <p>Your Trusted Source for Medication Information</p>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#drugs">Medications</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Popular Medications</h3>
+                        <ul>
+                            <li><a href="drugs/paracetamol.html">Paracetamol</a></li>
+                            <li><a href="drugs/ibuprofen.html">Ibuprofen</a></li>
+                            <li><a href="drugs/amoxicillin.html">Amoxicillin</a></li>
+                            <li><a href="drugs/omeprazole.html">Omeprazole</a></li>
+                            <li><a href="drugs/aspirin.html">Aspirin</a></li>
+                            <li><a href="drugs/metformin.html">Metformin</a></li>
+                            <li><a href="drugs/atorvastatin.html">Atorvastatin</a></li>
+                            <li><a href="drugs/amlodipine.html">Amlodipine</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Disclaimer</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to our newsletter for the latest updates</p>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your Email">
+                            <button>Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 GenuineMeds.in. All Rights Reserved.</p>
+                <p class="disclaimer">Disclaimer: Information provided is for educational purposes only and is not a substitute for professional medical advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- All Drugs Section -->
+    <section id="all-drugs" class="all-drugs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Complete Database</span>
+                <h2>All Available Medications</h2>
+                <p>Browse our complete database of medications with detailed information</p>
+                <div class="underline"></div>
+            </div>
+            <div class="drugs-grid">
+                <div class="drug-item">
+                    <a href="drugs/paracetamol.html">
+                        <i class="fas fa-pills"></i>
+                        <span>Paracetamol</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/ibuprofen.html">
+                        <i class="fas fa-tablets"></i>
+                        <span>Ibuprofen</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/amoxicillin.html">
+                        <i class="fas fa-capsules"></i>
+                        <span>Amoxicillin</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/omeprazole.html">
+                        <i class="fas fa-prescription-bottle"></i>
+                        <span>Omeprazole</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/aspirin.html">
+                        <i class="fas fa-heart"></i>
+                        <span>Aspirin</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/metformin.html">
+                        <i class="fas fa-tint"></i>
+                        <span>Metformin</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/atorvastatin.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Atorvastatin</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/amlodipine.html">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Amlodipine</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/azithromycin.html">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                        <span>Azithromycin</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/pantoprazole.html">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Pantoprazole</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/ciprofloxacin.html">
+                        <i class="fas fa-virus"></i>
+                        <span>Ciprofloxacin</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/diclofenac.html">
+                        <i class="fas fa-bone"></i>
+                        <span>Diclofenac</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/cetirizine.html">
+                        <i class="fas fa-allergies"></i>
+                        <span>Cetirizine</span>
+                    </a>
+                </div>
+                <div class="drug-item">
+                    <a href="drugs/losartan.html">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>Losartan</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drug Details Modal -->
+    <div id="drugModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="drugDetails">
+                <!-- Drug details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Results Modal -->
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="searchResults">
+                <!-- Search results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success-modal">
+            <span class="close">&times;</span>
+            <div class="success-content">
+                <i class="fas fa-check-circle"></i>
+                <h3>Success!</h3>
+                <p id="successMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
